@@ -1,0 +1,7 @@
+<?php
+require __DIR__.'/../config/config.php'; require __DIR__.'/../includes/functions.php'; require_role('student');
+$user=current_user(); $pageTitle='Student dashboard'; $base='../'; require __DIR__.'/../includes/header.php';
+?>
+<div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4"><div><span class="eyebrow">STUDENT SPACE</span><h1 class="h2 fw-bold mt-2 mb-1">Your dashboard</h1><p class="text-secondary mb-0">View your registered student account information.</p></div><span class="role-pill">Student account</span></div>
+<div class="row g-3"><div class="col-lg-4"><div class="stat-card"><span class="stat-label">STUDENT NUMBER</span><div class="stat-value fs-3"><?= e($user['student_number']??'') ?></div><small class="text-secondary">Your unique student ID</small></div></div><div class="col-lg-8"><section class="info-card h-100"><h2 class="h5 fw-bold mb-4">Profile details</h2><dl class="row mb-0"><dt class="col-sm-4 text-secondary fw-normal">Full name</dt><dd class="col-sm-8 fw-semibold"><?= e($user['full_name']??'') ?></dd><dt class="col-sm-4 text-secondary fw-normal">Email address</dt><dd class="col-sm-8 fw-semibold"><?= e($user['email']??'') ?></dd><dt class="col-sm-4 text-secondary fw-normal">Account role</dt><dd class="col-sm-8"><span class="badge text-bg-primary">Student</span></dd></dl></section></div></div>
+<?php require __DIR__.'/../includes/footer.php'; ?>
